@@ -136,6 +136,28 @@ namespace MyMath
         }
         #endregion Dot
 
+        #region Type Conversions Interops
+        public static implicit operator Vector2(Vector2D vector)
+        {
+            return InteropVector2D.ToVector2(vector);
+        }
+
+        public static implicit operator Vector3(Vector2D vector)
+        {
+            return InteropVector2D.ToVector3(vector);
+        }
+
+        public static implicit operator Vector2D(Vector2 vector)
+        {
+            return InteropVector2D.FromVector2(vector);
+        }
+
+        public static implicit operator Vector2D(Vector3 vector)
+        {
+            return InteropVector2D.FromVector3(vector);
+        }
+        #endregion
+
         public override string ToString()
         {
             return $"({x}, {y})";
