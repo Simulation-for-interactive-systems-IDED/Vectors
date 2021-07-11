@@ -6,10 +6,44 @@ namespace MyMath
 {
     public static class DrawVector2D
     {
-        public static void Draw(Vector2D vector)
+
+        public static void DoDraw(Vector2D vector, Color color)
         {
-            //Debug.DrawLine(Vector3.zero, new Vector3(vec))
+            Debug.DrawLine(Vector3.zero, vector, color);
+        }
+
+        public static void DoDraw(Vector2D origin, Vector2D vector, Color color)
+        {
+            Debug.DrawLine(origin, origin + vector, color);
+        }
+
+        /// <summary>
+        /// This is a extension method can be used like this with an instance
+        /// of a Vector2D:
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <param name="color"></param>
+        public static void Draw(this Vector2D vector, Color color)
+        {
+            DoDraw(vector, color);
+        }
+
+        /// <summary>
+        /// This is to allow the draw of the vector but with a origin different than
+        /// (0, 0)
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <param name="origin"></param>
+        /// <param name="color"></param>
+        /// <example>
+        /// <code>
+        /// Vector2D myVector = new Vector2D(2, 2);
+        /// myVector.Draw(origin, color);
+        /// </code>
+        /// </example>
+        public static void Draw(this Vector2D vector, Vector2D origin, Color color)
+        {
+            DoDraw(origin, vector, color);
         }
     }
-
 }
