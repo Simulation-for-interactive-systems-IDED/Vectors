@@ -136,6 +136,25 @@ namespace MyMath
         }
         #endregion Dot
 
+        #region SetLength
+        public void SetLength(float length)
+        {
+            Normalize();
+            x = x * length;
+            y = y * length;
+        }
+        #endregion SetLength
+
+        #region Limit
+        public void Limit(float max)
+        {
+            if (Length() > max)
+            {
+                SetLength(max);
+            }
+        }
+        #endregion Limit
+
         #region Type Conversions Interops
         public static implicit operator Vector2(Vector2D vector)
         {
